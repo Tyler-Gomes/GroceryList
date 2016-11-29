@@ -15,7 +15,7 @@
             <input type="text" id="newItem" class="form-control"
                    placeholder="New item...">
             <span class="input-group-btn">
-              <button class="btn btn-default" type="button">
+              <button class="btn btn-default" type="button" onclick="AddItem();">
                 <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
               </button>
             </span>
@@ -29,6 +29,22 @@
           </ul>
         </div>
       </div>
+      <div class="row">
+        <div class="col-sm-1">
+          <button type="button" class="btn btn-default" onclick="saveList();">
+            <span class="glyphicon glyphicon-save-file" aria-hidden="true"></span>
+            Save list
+          </button>
+        </div>
+      </div>
+        <div class="row">
+          <div class="col-sm-1">
+            <button type="button" class="btn btn-default" onclick="clearList();">
+              <span class="glyphicon glyphicon-open-file" aria-hidden="true"></span>
+              Clear List
+            </button>
+          </div>
+        </div>
     </div>
   </body>
 </html>

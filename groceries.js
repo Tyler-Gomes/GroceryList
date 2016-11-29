@@ -1,3 +1,50 @@
+var myList = [];
+
+function removeParentListItem()
+{
+  var mom = this.parentNode;
+  var grandma = mom.parentNode;
+  var itemRemove = mom.firstChild.textContent;
+  var itemIndex = myList.indexOf(itemRemove);
+  myList.splice(itemIndex,1);
+  grandma.removeChild(mom)
+  console.log(myList);
+}
+
+function AddItem () {
+var input = document.getElementById("newItem").value;
+var item = document.createElement("li");
+var list = document.getElementById("listDisplay");
+var itemName = document.createTextNode(input);
+var iconClose = document.createElement("span");
+var btnClose =document.createElement("button");
+var vari = myList.indexOf(input);
+  btnClose.addEventListener("click", removeParentListItem);
+  btnClose.classList.add("btn");
+  btnClose.classList.add("btn-danger");
+  btnClose.classList.add("btn-xs");
+  iconClose.classList.add("glyphicon");
+  iconClose.classList.add("glyphicon-remove");
+  btnClose.appendChild(iconClose);
+  item.appendChild(btnClose);
+
+if(myList.indexOf(input) == -1){
+   myList.push(input);
+   console.log(myList);
+}
+ item.appendChild(itemName);
+ list.appendChild(item);
+ document.getElementById("newItem").value = "";
+}
+function saveList() {
+  var savedList = myList.toString();
+  setCookie("Slist",savedList,2);
+}
+function clearList() {
+document.getElementById("listDisplay").innerHTML = "";
+myList=[];
+}
+
 
 //courtesy of w3schools, from: http://www.w3schools.com/js/js_cookies.asp
 function setCookie(cname, cvalue, exdays) {
